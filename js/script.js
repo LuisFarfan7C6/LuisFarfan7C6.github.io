@@ -59,6 +59,6 @@ window.onscroll = () => {
         $buttonMail.setAttribute('href', `mailto:luis.farfan.680@gmail.com?subject=${form.get('subject')}&body=Hola, mi nombre es ${form.get('name')} y mi teléfono es ${form.get('number')}.%0A%0A${form.get('body')}`)
         $buttonMail.click()
         alert('Gracias por escribir, te responderé a la brevedad')
-        return this.reset()
+        this.reset();
     }
 }
