@@ -53,8 +53,8 @@ window.onscroll = () => {
 
     $form.addEventListener('submit', handleSubmit)
 
-    function handleSubmit(event) {
-        event.preventDefault()
+    function handleSubmit(click) {
+        click.preventDefault()
         const form = new FormData(this)
         $buttonMail.setAttribute('href', `mailto:luis.farfan.680@gmail.com?subject=${form.get('subject')}&body=Hola, mi nombre es ${form.get('name')} y mi teléfono es ${form.get('number')}.%0A%0A${form.get('body')}`)
         $buttonMail.click()
