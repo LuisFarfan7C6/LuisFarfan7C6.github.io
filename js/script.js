@@ -1,4 +1,3 @@
-
 //Toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -35,8 +34,7 @@ window.onscroll = () => {
     });
 
     //Sticky header
-    let header = document.querySelector('header');    
-
+    let header = document.querySelector('header');
     header.classList.toggle('sticky', window.scrollY > 100);
 
     //Remove toggle icon and navbar when click navbar links (scroll)
@@ -46,20 +44,19 @@ window.onscroll = () => {
     //Animation footer on scroll
     let footer = document.querySelector('footer');
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight);
+}
 
-    //Button enviar in contact section
-    const $form = document.querySelector('#form')
-    const $buttonMail = document.querySelector('#sendMail')
+//Button enviar in contact section
+const $form = document.querySelector('#form');
+const $buttonMail = document.querySelector('#sendMail');
 
-    $form.addEventListener('submit', handleSubmit)
+$form.addEventListener('submit', handleSubmit);
 
-    function handleSubmit(onclick) {
-        onclick.preventDefault()
-        const form = new FormData(this)
-        $buttonMail.setAttribute('href', `mailto:luis.farfan.680@gmail.com?subject=${form.get('subject')}&body=Hola, mi nombre es ${form.get('name')} y mi teléfono es ${form.get('number')}.%0A%0A${form.get('body')}`)
-        $buttonMail.click()
-        $buttonMail.removeAttribute('href)
-        alert('Gracias por escribir, te responderé a la brevedad')
-        location.reload()
-    }
+function handleSubmit(event) {
+    event.preventDefault()
+    const form = new FormData(this)
+    $buttonMail.setAttribute('href', `mailto:luis.farfan.680@gmail.com?subject=${form.get('subject')}&body=Hola, mi nombre es ${form.get('name')} y mi teléfono es ${form.get('number')}.%0A%0A${form.get('body')}`)
+    $buttonMail.click()
+    alert('Gracias por escribir, te responderé a la brevedad')
+    this.reset()
 }
